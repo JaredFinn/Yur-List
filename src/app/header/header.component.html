@@ -1,0 +1,6 @@
+<div class="container">
+          <mat-form-field class="input" appearance="fill" >
+              <mat-label class="input-label">Explore various recipes!</mat-label>
+              <input matInput placeholder="Ex. Baked Ziti" (keydown.enter)="emitDish();search.emit(true)" value="Sushi" [(ngModel)]="thisDish" style="display: flex;">
+          </mat-form-field>
+</div>

@@ -1,0 +1,47 @@
+               
+<mat-card class="recipe" fxLayout="row" fxFlexFill fxLayoutGap="15px" fxLayoutAlign="center center" >
+    <div class="recipe-column">
+        <p class="recipe-title" fxLayout="row">{{recipe.title}}</p>
+        <div class="recipe-column nutrition" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">
+            <div fxLayout="row" fxLayoutGap="5px">
+                <div fxLayout="column" fxLayoutAlign="start">
+                    <p fxLayout="row">Calories: </p>
+                    <p fxLayout="row">Carbs: </p>
+                </div>
+                <!--div fxLayout="column">
+                    <p>{{nutrition[i]?.calories}}</p>
+                    <p>{{nutrition[i]?.carbs}}</p>
+                </div>
+                <div fxLayout="column">
+                    <p>n/a</p>
+                    <p>n/a</p>
+                </div-->
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <div fxLayout="column" fxLayoutAlign="start">
+                    <p fxLayout="row">Fats: </p>
+                    <p fxLayout="row">Protein: </p>
+                </div>
+                <!--div fxLayout="column">
+                    <p>{{nutrition[i].fat}}</p>
+                    <p>{{nutrition[i].protein}}</p>
+                </div>
+                <div fxLayout="column">
+                    <p>n/a</p>
+                    <p>n/a</p>
+                </div-->
+            </div>  
+        </div>
+    </div>
+    <div class="recipe-column">
+        <img class="recipe-images" src={{recipe.image}}/>
+    </div>
+</mat-card>
+        <!--div class="ingredients-list" *ngIf="recipeInfo">
+            <button mat-flat-button color="warn" (click)="addAllItemsToList();openSnackBar('Items added to yur list', 'Close')">Add All</button>
+            <mat-list role="list" *ngFor="let ingredient of ingredients">
+                <mat-list-item class="ingredient-item" role="listitem">{{ingredient}}</mat-list-item>
+            </mat-list>
+        </div-->
+
+    

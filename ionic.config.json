@@ -1,0 +1,7 @@
+{
+  "name": "YurList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
