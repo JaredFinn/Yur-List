@@ -13,7 +13,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, HttpClientModule, FlexLayoutModule],
+  imports: [
+      BrowserModule, 
+      IonicModule.forRoot(), 
+      AppRoutingModule, 
+      BrowserAnimationsModule, 
+      HttpClientModule, 
+      FlexLayoutModule
+    ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

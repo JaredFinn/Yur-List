@@ -1,0 +1,15 @@
+.recipe-image{
+    width: 165px;
+    margin-left: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+:ng-deep img{
+    border-radius: 2px;
+}
+.recipe-title{
+    font-size: 18px;
+    margin: 10px;
+}

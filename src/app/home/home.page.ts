@@ -19,10 +19,12 @@ export class HomePage implements OnChanges {
 
   rawData: any;
   rawNutrition: any;
-  nutrition: {calories: string, carbs: string, fat: string, protein: string}[];
+  nutrition: {calories: string, carbs: string, fat: string, protein: string}[] = [];
 
 
   defaultScreen: boolean;
+
+  showIngredients: boolean = false;
 
   dish: string;
   search = true;
@@ -35,7 +37,6 @@ export class HomePage implements OnChanges {
 
   ngOnChanges(){
     if(this.search){
-      console.log("here")
       this.defaultScreen = true;
       this.getRecipeId()
     }
@@ -71,8 +72,8 @@ export class HomePage implements OnChanges {
       if(this.rawData){
         for(let i = 0; i < this.rawData.results.length; i++){
             this.relevantResults.push(this.rawData.results[i]);
+            this.getNutrition(this.rawData.results[i].id)
         }
-      
       }
       this.defaultScreen = false;
       console.log(data);
@@ -88,6 +89,7 @@ export class HomePage implements OnChanges {
       for(let i = 0; i < this.recipeInfo.extendedIngredients.length; i++){
         this.ingredients.push(this.recipeInfo.extendedIngredients[i].nameClean)
       }
+      this.showIngredients = true;
     });
   }
 

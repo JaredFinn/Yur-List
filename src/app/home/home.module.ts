@@ -11,6 +11,7 @@ import { HeaderModule } from '../header/header.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ResultsModule } from '../results/results.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ResultsModule } from '../results/results.module';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    ResultsModule
+    ResultsModule,
+    FlexLayoutModule
 
   ],
   declarations: [HomePage]
