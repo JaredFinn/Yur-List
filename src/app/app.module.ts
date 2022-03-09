@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ListModule } from './list/list.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
       AppRoutingModule, 
       BrowserAnimationsModule, 
       HttpClientModule, 
-      FlexLayoutModule
+      FlexLayoutModule,
+      ListModule,
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

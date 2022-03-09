@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges, Output, EventEmitter } from '@angular/core';
 import { DataService, Message } from '../services/data.service';
 //import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,6 +9,8 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage implements OnChanges {
   constructor(private data: DataService,/*public _snackbar: MatSnackBar*/) {}
+
+  @Output() ingredientsToList = new EventEmitter<string[]>();
 
   relevantResults: {id: number, title: string, image: string, imageType: string}[] = [];
 
@@ -50,23 +52,24 @@ export class HomePage implements OnChanges {
     this.getRecipeId()
   }
 
-  getNutrition(id: number){
-    this.data.getRecipeNutrition(id).subscribe((data) =>{
+  getNutrition(id: number): any{
+    return this.data.getRecipeNutrition(id);
+    /*this.data.getRecipeNutrition(id).subscribe((data) =>{
       this.rawNutrition = data;
       this.nutrition.push({calories: this.rawNutrition.calories, carbs: this.rawNutrition.carbs, fat: this.rawNutrition.fat, protein: this.rawNutrition.protein })
-    })
+    })*/
 
 }
-
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
 
   getRecipeId(){
     this.relevantResults = [];
     this.ingredients = [];
     if(this.dish)
       this.dish.replace(/\s/g, '_');
+    
+    this.relevantResults = this.data.getRecipes(this.dish).results;
+    this.nutrition = this.getNutrition(1)
+    /*
     this.data.getRecipes(this.dish).subscribe((data)=>{
       this.rawData = data;
       if(this.rawData){
@@ -77,12 +80,14 @@ export class HomePage implements OnChanges {
       }
       this.defaultScreen = false;
       console.log(data);
-    })  
+    })  */
   }
 
   assignId(id: number){
     this.recipeId = id;
-    this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
+    this.ingredients = this.data.getRecipeInfo(this.recipeId);
+    this.showIngredients = true;
+    /*this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
       this.recipeInfo = data;
       console.log(this.recipeInfo);
       this.relevantResults = [];
@@ -90,10 +95,11 @@ export class HomePage implements OnChanges {
         this.ingredients.push(this.recipeInfo.extendedIngredients[i].nameClean)
       }
       this.showIngredients = true;
-    });
+    });*/
   }
 
-  addAllItemsToList(){
+  addAllItems(){
+    //pass ingredients list to the list page
     this.data.setItemsList(this.ingredients);
   }
 
