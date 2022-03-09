@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   
-  @Input() items: string[];
 
   constructor() {}
 }
