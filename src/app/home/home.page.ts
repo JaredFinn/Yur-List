@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges, Output, EventEmitter, OnInit } from '@angular/core';
 import { DataService, Message } from '../services/data.service';
 //import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -7,8 +7,10 @@ import { DataService, Message } from '../services/data.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnChanges {
+export class HomePage implements OnChanges, OnInit {
   constructor(private data: DataService,/*public _snackbar: MatSnackBar*/) {}
+
+  @Output() ingredientsToList = new EventEmitter<string[]>();
 
   relevantResults: {id: number, title: string, image: string, imageType: string}[] = [];
 
@@ -29,10 +31,16 @@ export class HomePage implements OnChanges {
   dish: string;
   search = true;
 
+  added: boolean;
+
   refresh(ev) {
     setTimeout(() => {
       ev.detail.complete();
     }, 3000);
+  }
+
+  ngOnInit() {
+    
   }
 
   ngOnChanges(){
@@ -50,7 +58,9 @@ export class HomePage implements OnChanges {
     this.getRecipeId()
   }
 
-  getNutrition(id: number){
+  getNutrition(id: number): any{
+    //Uncomment for no api calls
+    //return this.data.getRecipeNutrition(id);
     this.data.getRecipeNutrition(id).subscribe((data) =>{
       this.rawNutrition = data;
       this.nutrition.push({calories: this.rawNutrition.calories, carbs: this.rawNutrition.carbs, fat: this.rawNutrition.fat, protein: this.rawNutrition.protein })
@@ -58,15 +68,17 @@ export class HomePage implements OnChanges {
 
 }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
   getRecipeId(){
+    
     this.relevantResults = [];
     this.ingredients = [];
     if(this.dish)
       this.dish.replace(/\s/g, '_');
+    
+    //Uncomment for not api calls
+    //this.relevantResults = this.data.getRecipes(this.dish).results;
+    //this.nutrition = this.getNutrition(1)
+    
     this.data.getRecipes(this.dish).subscribe((data)=>{
       this.rawData = data;
       if(this.rawData){
@@ -82,6 +94,10 @@ export class HomePage implements OnChanges {
 
   assignId(id: number){
     this.recipeId = id;
+    //Uncomment for no api calls
+    //this.ingredients = this.data.getRecipeInfo(this.recipeId);
+    //this.showIngredients = true;
+    //this.added = false;
     this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
       this.recipeInfo = data;
       console.log(this.recipeInfo);
@@ -90,11 +106,19 @@ export class HomePage implements OnChanges {
         this.ingredients.push(this.recipeInfo.extendedIngredients[i].nameClean)
       }
       this.showIngredients = true;
+      this.added = false;
     });
   }
 
-  addAllItemsToList(){
+  addAllItems(){
+    //pass ingredients list to the list page
     this.data.setItemsList(this.ingredients);
+    this.added = true;
+    setTimeout(() => {
+      this.showIngredients = false;
+      this.getRecipeId();
+    }, 1000);
+    
   }
 
   openSnackBar(message: string, action: string) {

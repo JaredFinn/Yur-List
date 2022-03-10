@@ -4,46 +4,52 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="!showIngredients">  
-  <ion-list>
-    <ion-item *ngFor="let recipe of relevantResults; let i = index" (click)="assignId(recipe.id)">
-      <div fxLayout="column">
-        <div fxLayout="row">
-          <ion-label class="recipe-title">
-            {{recipe.title}}
-          </ion-label>
-        </div>
-        <div fxLayout="row" fxLayoutGap="40px">
-          <div fxLayout="column">
-            <ion-img class="recipe-image" [src]="recipe.image"></ion-img>
-          </div>
-          <div fxLayout="row" fxLayoutGap="10px">
-            <div fxLayout="column">
-              <div>Calories: </div>
-              <div>Carbs: </div>
-              <div>Fat: </div>
-              <div>Protein: </div>
-            </div>
-            <div fxLayout="column">
-              <div>{{nutrition[i]?.calories}} </div>
-              <div>{{nutrition[i]?.carbs}} </div>
-              <div>{{nutrition[i]?.fat}} </div>
-              <div>{{nutrition[i]?.protein}} </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </ion-item>
-    <!--app-message *ngFor="let message of getMessages()" [message]="message"></app-message-->
-  </ion-list>
-</ion-content>
 
-<ion-content *ngIf="showIngredients">
-  <ion-list>
-    <ion-item *ngFor="let ingredient of ingredients">
-      <p>{{ingredient}}</p>
-    </ion-item>
-  </ion-list>
+  <ion-content [fullscreen]="true" *ngIf="!showIngredients">  
+    <ion-list>
+      <ion-item *ngFor="let recipe of relevantResults; let i = index" (click)="assignId(recipe.id)">
+        <div fxLayout="column">
+          <div fxLayout="row">
+            <ion-label class="recipe-title">
+              {{recipe.title}}
+            </ion-label>
+          </div>
+          <div fxLayout="row" fxLayoutGap="40px">
+            <div fxLayout="column">
+              <ion-img class="recipe-image" [src]="recipe.image"></ion-img>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxLayout="column">
+                <div>Calories: </div>
+                <div>Carbs: </div>
+                <div>Fat: </div>
+                <div>Protein: </div>
+              </div>
+              <div fxLayout="column">
+                <div>{{nutrition[i]?.calories}} </div>
+                <div>{{nutrition[i]?.carbs}} </div>
+                <div>{{nutrition[i]?.fat}} </div>
+                <div>{{nutrition[i]?.protein}} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </ion-item>
+      <!--app-message *ngFor="let message of getMessages()" [message]="message"></app-message-->
+    </ion-list>
+  </ion-content>
+  
+  <ion-content *ngIf="showIngredients">
+    <div fxLayout="row">
+      <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllItems()">Add All Ingredients</ion-button>
+      <!--ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon-->
+      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
+    </div>
 
-</ion-content>
+    <ion-list>
+      <ion-item *ngFor="let ingredient of ingredients">
+        <p>{{ingredient}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
