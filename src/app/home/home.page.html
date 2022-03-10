@@ -5,7 +5,6 @@
 </ion-header>
 
 
-<ng-container *ngIf="!listView" #Explore>
   <ion-content [fullscreen]="true" *ngIf="!showIngredients">  
     <ion-list>
       <ion-item *ngFor="let recipe of relevantResults; let i = index" (click)="assignId(recipe.id)">
@@ -42,16 +41,15 @@
   </ion-content>
   
   <ion-content *ngIf="showIngredients">
-    <ion-button class="add-all-btn" color="primary" (click)="addAllItems()">Add All Ingredients</ion-button>
+    <div fxLayout="row">
+      <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllItems()">Add All Ingredients</ion-button>
+      <!--ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon-->
+      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
+    </div>
+
     <ion-list>
       <ion-item *ngFor="let ingredient of ingredients">
         <p>{{ingredient}}</p>
       </ion-item>
     </ion-list>
   </ion-content>
-</ng-container>
-
-<ng-container *ngIf="listView" #List>
-  <app-list [items]="ingredients"></app-list>
-</ng-container>
-

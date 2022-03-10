@@ -1,5 +1,13 @@
-<ion-list>
-  <ion-item *ngFor="let item of myList">
-    {{item}}
-  </ion-item>
-</ion-list>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <p style="font-size: 1.5em;text-align: center;">Your List</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!showIngredients">  
+  <ion-list>
+    <ion-item *ngFor="let item of myList">
+      {{item}}
+    </ion-item>
+  </ion-list>
+</ion-content>
