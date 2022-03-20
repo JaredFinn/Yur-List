@@ -1,17 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" *ngIf="!showIngredients">
+  <ion-input class="input" placeholder="Ex. Baked Ziti" (keydown.enter)="findRecipe()" [(ngModel)]="dish"></ion-input>
+ 
+    <ion-list class="list">
+      <ion-item *ngFor="let recipe of relevantResults; let i = index" (click)="getRecipeInfo(recipe.id)">
+        <div fxLayout="column">
+          <div fxLayout="row">
+            <ion-label class="recipe-title">
+              {{recipe.title}}
+            </ion-label>
+          </div>
+          <div fxLayout="row" fxLayoutGap="40px">
+            <div fxLayout="column">
+              <ion-img class="recipe-image" [src]="recipe.image"></ion-img>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxLayout="column">
+                <div>Calories: </div>
+                <div>Carbs: </div>
+                <div>Fat: </div>
+                <div>Protein: </div>
+              </div>
+              <div fxLayout="column">
+                <div>{{nutrition[i]?.calories}} </div>
+                <div>{{nutrition[i]?.carbs}} </div>
+                <div>{{nutrition[i]?.fat}} </div>
+                <div>{{nutrition[i]?.protein}} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </ion-item>
+    </ion-list>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
+
+ <ion-content *ngIf="showIngredients">
+  <ion-input class="input" placeholder="Ex. Baked Ziti" (keydown.enter)="findRecipe()" [(ngModel)]="dish"></ion-input>
+  
+    <div fxLayout="row">
+      <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllRecipeItems()">Add All Ingredients</ion-button>
+      <!--ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon-->
+      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
+    </div>
+
+    <ion-list>
+      <ion-item *ngFor="let ingredient of ingredients">
+        <p>{{ingredient}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>

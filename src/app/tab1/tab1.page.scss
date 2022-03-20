@@ -1,0 +1,63 @@
+.input{
+    background-color: #e9e9e9;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    margin-top: 5%;
+    color: black;
+}
+
+::ng-deep .native-input.sc-ion-input-md {
+    margin-left: 15px;
+}
+
+.list{
+    background-color: white;
+}
+
+.recipe-image{
+    width: 165px;
+    margin-left: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+:ng-deep img{
+    border-radius: 2px;
+}
+.recipe-title{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.add-all-btn{
+    margin: 10px;
+}
+
+.loading-spinner{
+    margin-top: 18px;
+    font-size: 1.5em;
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
+.check{
+    margin-top: 18px;
+    font-size: 1.5em;
+    color: green;
+}
