@@ -2,11 +2,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { DataService } from '../services/data.service';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-explore',
+  templateUrl: 'explore.component.html',
+  styleUrls: ['explore.component.scss']
 })
-export class Tab1Page {
+export class ExploreComponent {
 
   
   @Output() ingredientsToList = new EventEmitter<string[]>();
