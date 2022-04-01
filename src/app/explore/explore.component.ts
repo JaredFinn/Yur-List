@@ -61,11 +61,11 @@ export class ExploreComponent {
 
   getNutrition(id: number): any{
     //Uncomment for no api calls
-    return this.data.getRecipeNutrition(id);
-    /*this.data.getRecipeNutrition(id).subscribe((data) =>{
+    //return this.data.getRecipeNutrition(id);
+    this.data.getRecipeNutrition(id).subscribe((data) =>{
       this.rawNutrition = data;
       this.nutrition.push({calories: this.rawNutrition.calories, carbs: this.rawNutrition.carbs, fat: this.rawNutrition.fat, protein: this.rawNutrition.protein })
-    })*/
+    })
 
 }
 
@@ -77,29 +77,29 @@ export class ExploreComponent {
       this.dish.replace(/\s/g, '_');
     
     //Uncomment for not api calls
-    this.relevantResults = this.data.getRecipes(this.dish).results;
-    this.nutrition = this.getNutrition(1)
+    // this.relevantResults = this.data.getRecipes(this.dish).results;
+    // this.nutrition = this.getNutrition(1)
     
-    /*this.data.getRecipes(this.dish).subscribe((data)=>{
+    this.data.getRecipes(this.dish).subscribe((data)=>{
       this.rawData = data;
       if(this.rawData){
         for(let i = 0; i < this.rawData.results.length; i++){
             this.relevantResults.push(this.rawData.results[i]);
-            this.getDishNutrition(this.rawData.results[i].id)
+            this.getNutrition(this.rawData.results[i].id)
         }
       }
       this.defaultScreen = false;
       console.log(data);
-    })  */
+    })  
   }
 
   getRecipeInfo(id: number){
     this.recipeId = id;
     //Uncomment for no api calls
-    this.ingredients = this.data.getRecipeInfo(this.recipeId);
-    this.showIngredients = true;
-    this.added = false;
-    /*this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
+    // this.ingredients = this.data.getRecipeInfo(this.recipeId);
+    // this.showIngredients = true;
+    // this.added = false;
+    this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
       this.recipeInfo = data;
       console.log(this.recipeInfo);
       this.relevantResults = [];
@@ -108,7 +108,7 @@ export class ExploreComponent {
       }
       this.showIngredients = true;
       this.added = false;
-    });*/
+    });
   }
 
   addAllRecipeItems(){
