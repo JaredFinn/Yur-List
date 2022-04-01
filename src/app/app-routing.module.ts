@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./nav/nav.module').then(m => m.NavComponentModule)
+    loadChildren: () => import('./components/nav/nav.module').then(m => m.NavComponentModule)
   }
 ];
 @NgModule({
