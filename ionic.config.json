@@ -1,5 +1,7 @@
 {
   "name": "yur-list",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

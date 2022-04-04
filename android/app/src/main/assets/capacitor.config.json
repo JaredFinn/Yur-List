@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "yur-list",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
