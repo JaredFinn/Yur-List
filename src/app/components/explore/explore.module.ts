@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     FlexLayoutModule
   ],
-  declarations: [ExploreComponent]
+  declarations: [ExploreComponent],
+  exports: [ExploreComponent]
 })
 export class ExploreComponentModule {}

@@ -8,8 +8,8 @@ const routes: Routes = [
     component: NavComponent,
     children: [
       {
-        path: 'explore',
-        loadChildren: () => import('../explore/explore.module').then(m => m.ExploreComponentModule)
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'list',
@@ -17,14 +17,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/nav/explore',
+        redirectTo: '/nav/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/nav/explore',
+    redirectTo: '/nav/home',
     pathMatch: 'full'
   }
 ];
