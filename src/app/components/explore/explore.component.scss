@@ -8,6 +8,11 @@
     color: black;
 }
 
+.searchbar{
+    position: fixed;
+    z-index: 101;
+}
+
 ::ng-deep .native-input.sc-ion-input-md {
     margin-left: 15px;
 }
@@ -18,10 +23,15 @@
 
 .recipe-image{
     width: 165px;
-    margin-left: auto;
     border-radius: 5px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+}
+
+.item{
+    width: 165px;
+}
+
+.recipe{
+    display: inline-flex;
 }
 
 :ng-deep img{
@@ -60,4 +70,38 @@
     margin-top: 18px;
     font-size: 1.5em;
     color: green;
+}
+
+::ng-deep .searchbar-input.sc-ion-searchbar-md {
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+::ng-deep .searchbar-search-icon.sc-ion-searchbar-md, .searchbar-cancel-button.sc-ion-searchbar-md {
+    margin-left: 35px;
+}
+
+::ng-deep .searchbar-clear-icon.sc-ion-searchbar-md {
+    margin-right: 35px;
+}
+
+::ng-deep .recipe-image[_ngcontent-fue-c209] {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+::ng-deep .ion-inherit-color{
+    padding: 0;
+}
+
+.list-item{
+    margin-left: 10px;
+    margin-top: 75px;
+}
+
+.items-center {
+    padding: 16px;
 }

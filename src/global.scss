@@ -24,3 +24,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ion-page {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    contain: layout size style;
+    overflow: hidden;
+    z-index: 0;
+}

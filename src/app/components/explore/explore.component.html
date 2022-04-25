@@ -1,9 +1,35 @@
 <ion-content [fullscreen]="true" *ngIf="!showIngredients">
-  <ion-input class="input" placeholder="Ex. Baked Ziti" (keydown.enter)="findRecipe()" [(ngModel)]="dish"></ion-input>
- 
-    <ion-list class="list">
-      <ion-item *ngFor="let recipe of relevantResults; let i = index" (click)="getRecipeInfo(recipe.id)">
-        <div fxLayout="column">
+  <ion-searchbar class="searchbar mx-auto" (keydown.enter)="findRecipe()" [(ngModel)]="dish" placeholder="Find Recipes You Love"></ion-searchbar>
+  
+  
+    <div class="list-item" >
+      <div class="recipe" *ngFor="let recipe of relevantResults; let i = index" (click)="getRecipeInfo(recipe.id)">
+
+        <ion-card class="item">
+          <ion-card-header>
+            <ion-img class="recipe-image" [src]="recipe.image"></ion-img>
+          </ion-card-header>
+        
+          <ion-card-content class="items-center">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxLayout="column" fxFlex="80px">
+                <div>Calories: </div>
+                <div>Carbs: </div>
+                <div>Fat: </div>
+                <div>Protein: </div>
+              </div>
+              <div fxLayout="column">
+                <div>{{nutrition[i]?.calories}} </div>
+                <div>{{nutrition[i]?.carbs}} </div>
+                <div>{{nutrition[i]?.fat}} </div>
+                <div>{{nutrition[i]?.protein}} </div>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+
+
+        <!-- <div fxLayout="column">
           <div fxLayout="row">
             <ion-label class="recipe-title">
               {{recipe.title}}
@@ -28,10 +54,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         
-      </ion-item>
-    </ion-list>
+      </div>
+    </div>
 
 </ion-content>
 
