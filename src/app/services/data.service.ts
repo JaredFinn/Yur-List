@@ -115,7 +115,7 @@ ingredients = [
     //return this.httpClient.get(this.RECIPES_API + `${id}/nutritionWidget.json?apiKey=${this.API_KEY}`);
   }
 
-  public setItemsList(ingredients: string[]){
+  public setItemsList(ingredients: any){
     for(let i = 0; i < ingredients.length; i++){
       this.itemsList.push(ingredients[i])
     }

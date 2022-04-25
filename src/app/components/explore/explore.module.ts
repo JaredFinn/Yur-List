@@ -8,6 +8,7 @@ import { ExploreComponentRoutingModule } from './explore-routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RecipeModule } from '../recipe/recipe.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ExploreComponentRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RecipeModule
   ],
   declarations: [ExploreComponent],
   exports: [ExploreComponent]

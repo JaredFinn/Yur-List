@@ -1,0 +1,62 @@
+<ion-content> 
+    <ion-slides class="photos" pager="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-img class="recipe-image" [src]="recipeImage"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides>
+
+    <div fxLayout="row" class="m-3">
+      <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllRecipeItems()">Add All Ingredients</ion-button>
+      <!--ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon-->
+      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="m-2">Nutrition</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content class="nutrition flex justify-between mx-8">
+        <div class="flex" fxLayout="row" fxLayoutGap="10px">
+          <div class="mr-4" fxLayout="column" fxFlex="80px">
+            <div>Calories: </div>
+            <div>Carbs: </div>
+            <div>Fat: </div>
+            <div>Protein: </div>
+          </div>
+          <div fxLayout="column">
+            <div>{{nutrition[0]?.calories}} </div>
+            <div>{{nutrition[0]?.carbs}} </div>
+            <div>{{nutrition[0]?.fat}} </div>
+            <div>{{nutrition[0]?.protein}} </div>
+          </div>
+        </div>
+        <div class="flex" fxLayout="row" fxLayoutGap="10px">
+          <div class="mr-4" fxLayout="column" fxFlex="80px">
+            <div>Calories: </div>
+            <div>Carbs: </div>
+            <div>Fat: </div>
+            <div>Protein: </div>
+          </div>
+          <div fxLayout="column">
+            <div>{{nutrition[0]?.calories}} </div>
+            <div>{{nutrition[0]?.carbs}} </div>
+            <div>{{nutrition[0]?.fat}} </div>
+            <div>{{nutrition[0]?.protein}} </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list>
+      <ion-item *ngFor="let ingredient of ingredients">
+        <p>{{ingredient}}</p>
+      </ion-item>
+    </ion-list>
+</ion-content>

@@ -33,6 +33,8 @@ export class ExploreComponent {
 
   added: boolean;
 
+  selectedRecipe: any;
+
   constructor(private data: DataService) {}
 
 
@@ -70,6 +72,9 @@ export class ExploreComponent {
 }
 
   getRecipe(){
+    if(this.showIngredients){
+      this.showIngredients = false;
+    }
     
     this.relevantResults = [];
     this.ingredients = [];
