@@ -101,18 +101,18 @@ ingredients = [
   
 
   public getRecipes(dish: string){
-    return this.recipes;
-    //return this.httpClient.get(this.RECIPES_API + `complexSearch?apiKey=${this.API_KEY}&query=${dish}`);
+    //return this.recipes;
+    return this.httpClient.get(this.RECIPES_API + `complexSearch?apiKey=${this.API_KEY}&query=${dish}`);
   }
 
   public getRecipeInfo(id: number){
-    return this.ingredients;
-    //return this.httpClient.get(this.RECIPES_API + `${id}/information?apiKey=${this.API_KEY}`);
+    //return this.ingredients;
+    return this.httpClient.get(this.RECIPES_API + `${id}/information?apiKey=${this.API_KEY}`);
   }
 
   public getRecipeNutrition(id: number){
-    return this.nutrition
-    //return this.httpClient.get(this.RECIPES_API + `${id}/nutritionWidget.json?apiKey=${this.API_KEY}`);
+    //return this.nutrition
+    return this.httpClient.get(this.RECIPES_API + `${id}/nutritionWidget.json?apiKey=${this.API_KEY}`);
   }
 
   public setItemsList(ingredients: string[]){
