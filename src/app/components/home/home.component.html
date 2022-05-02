@@ -1,17 +1,21 @@
 <div class="top-section mb-auto">
-  <div class="header m-auto">
-    <img class="logo m-auto" src="../../../assets/icon/17a000c5831149f5baa5dc09f0dc096a.png" alt="">
-  </div>
-  <div class="navigation">
-    <ion-segment (ionChange)="segmentChanged($event)" value="explore">
-      <ion-segment-button value="explore">
-        <ion-label>Explore</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="search">
-        <ion-label>Search</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-  </div>  
+  <ion-header>
+    <div class="header m-auto">
+      <img class="logo m-auto" src="../../../assets/icon/17a000c5831149f5baa5dc09f0dc096a.png" alt="">
+    </div>
+    <div class="navigation">
+      <ion-segment (ionChange)="segmentChanged($event)" value="explore">
+        <ion-segment-button value="explore">
+          <ion-label>Explore</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="search">
+          <ion-label>Search</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>  
+  </ion-header>
+  
+  
 </div>
 <div class="body h-full">
   <ion-content *ngIf="searchType === 'explore'">

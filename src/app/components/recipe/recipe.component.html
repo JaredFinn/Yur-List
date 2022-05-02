@@ -1,5 +1,14 @@
 <ion-content> 
     <ion-slides class="photos" pager="true" [options]="slideOpts">
+      <ion-fab vertical="top" horizontal="end">
+        <ion-fab-button (click)="addAllRecipeItems()">
+          <ion-icon *ngIf="!added" name="add"></ion-icon>
+          <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <!-- <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllRecipeItems()">Add All +</ion-button>
+      <ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon>
+      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon> -->
       <ion-slide>
         <ion-img class="recipe-image" [src]="recipeImage"></ion-img>
       </ion-slide>
@@ -11,11 +20,7 @@
       </ion-slide>
     </ion-slides>
 
-    <div fxLayout="row" class="m-3">
-      <ion-button fxLayout="column" class="add-all-btn" color="primary" (click)="addAllRecipeItems()">Add All Ingredients</ion-button>
-      <!--ion-icon fxLayout="column" class="loading-spinner" fxLayoutAlign="center center" name="refresh-outline"></ion-icon-->
-      <ion-icon *ngIf="added" class="check" name="checkmark-outline"></ion-icon>
-    </div>
+    
 
     <ion-card>
       <ion-card-header>

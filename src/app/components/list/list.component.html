@@ -1,9 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Yur List
-    </ion-title>
-  </ion-toolbar>
+  <div class="header m-auto">
+    <img class="logo m-auto" src="../../../assets/icon/17a000c5831149f5baa5dc09f0dc096a.png" alt="">
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -11,5 +9,6 @@
     <ion-item *ngFor="let item of myList">
       {{item}}
     </ion-item>
+
   </ion-list>
 </ion-content>
