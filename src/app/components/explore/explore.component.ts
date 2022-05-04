@@ -20,6 +20,7 @@ export class ExploreComponent {
 
   recipeInfo: any;
   ingredients: string[] = [];
+  aisles: string[] = [];
 
   rawData: any;
   rawNutrition: any;
@@ -104,28 +105,17 @@ export class ExploreComponent {
     // this.ingredients = this.data.getRecipeInfo(this.recipeId);
     // this.showIngredients = true;
     // this.added = false;
-    this.data.getRecipeInfo(this.recipeId).subscribe((data)=>{
+    this.data.getRecipeInfo(this.recipeId).subscribe((data: any)=>{
       this.recipeInfo = data;
       console.log(this.recipeInfo);
       this.relevantResults = [];
       for(let i = 0; i < this.recipeInfo.extendedIngredients.length; i++){
-        this.ingredients.push(this.recipeInfo.extendedIngredients[i].nameClean)
+        this.ingredients.push(this.recipeInfo.extendedIngredients[i].nameClean);
+        this.aisles.push(this.recipeInfo.extendedIngredients[i].aisle);
       }
       this.showIngredients = true;
       this.added = false;
     });
   }
-
-  addAllRecipeItems(){
-    //pass ingredients list to the list page
-    this.data.setItemsList(this.ingredients);
-    this.added = true;
-    setTimeout(() => {
-      this.showIngredients = false;
-      this.getRecipe();
-    }, 1000);
-    
-  }
-
 
 }
