@@ -9,11 +9,13 @@ import { DataService } from '../../services/data.service';
 export class ListComponent {
 
   myList: string[] = [];
+  aisleList: string[] = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.myList = this.dataService.getItemsList()
+    this.aisleList = this.dataService.getAislesList();
   }
 
 }

@@ -10,6 +10,7 @@ export class RecipeComponent implements OnInit {
 
   @Input() ingredients: {id: number, title: string, image: string, imageType: string}[] = [];
   @Input() nutrition: {calories: string, carbs: string, fat: string, protein: string}[] = [];
+  @Input() aisles: string[] = [];
   @Input() recipeImage: any
   @Output() backToRecipe = new EventEmitter();
 
@@ -27,7 +28,7 @@ export class RecipeComponent implements OnInit {
 
   addAllRecipeItems(){
     //pass ingredients list to the list page
-    this.data.setItemsList(this.ingredients);
+    this.data.setItemsList(this.ingredients, this.aisles);
     this.added = true;
     setTimeout(() => {
       this.showIngredients = false;
