@@ -5,6 +5,58 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <h1 class="title">List</h1>
+  <div class="list-container flex flex-col space-y-5">
+    <div class="category-container">
+      <label class="category flex-row">Meat and Seafood</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="category-container">
+      <label class="category flex-row">Deli and Bakery</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="category-container">
+      <label class="category flex-row">Grocery</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="category-container">
+      <label class="category flex-row">Produce</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="category-container">
+      <label class="category flex-row">Cooking</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="category-container">
+      <label class="category flex-row">Dairy</label>
+      <ion-list class="ingredient-list">
+        <ion-item *ngFor="let item of myList">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
   <ion-list>
     <ion-item *ngFor="let item of myList">
       {{item}}
