@@ -105,6 +105,7 @@ export class ExploreComponent {
     this.ingredients = this.data.getRecipeInfo(this.recipeId);
     this.showIngredients = true;
     this.added = false;
+    this.aisles = this.data.getAislesList();
     // this.data.getRecipeInfo(this.recipeId).subscribe((data: any)=>{
     //   this.recipeInfo = data;
     //   console.log(this.recipeInfo);

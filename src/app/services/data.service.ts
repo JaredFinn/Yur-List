@@ -107,7 +107,7 @@ aisles = [
   "Cheese",
   "Meat",
 ]
-  
+
 
   public getRecipes(dish: string){
     return this.recipes;
@@ -132,11 +132,11 @@ aisles = [
   }
 
   public getItemsList(){
-    return this.itemsList;
+    return this.ingredients;
   }
 
   public getAislesList(){
-    return this.aislesList;
+    return this.aisles;
   }
 
 }
